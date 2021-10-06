@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "trafic-light"
+  "defaultProject": "trafic-light",
+  "cli": {
+    "analytics": "166674b1-dbef-4bc8-a699-cae963dfffdd"
+  }
 }
