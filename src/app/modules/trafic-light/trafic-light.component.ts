@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-trafic-light',
@@ -6,25 +6,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trafic-light.component.scss']
 })
 export class TraficLightComponent implements OnInit {
-
+  @ViewChild('truck')
+  truck: ElementRef;
+  acellerate: any;
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   changeColor(): void{
     const traficColors = [
       {
-        previous: 'red',
+        previous: 'green',
         next: 'yellow'
       },
       {
         previous: 'yellow',
-        next: 'green'
+        next: 'red'
       },
       {
-        previous: 'green',
-        next: 'red'
+        previous: 'red',
+        next: 'green'
       }
     ];
     const lightOn = document.querySelector('.on');
@@ -33,6 +34,11 @@ export class TraficLightComponent implements OnInit {
       if (lightOn.classList.contains(color.previous)) {
         const lightToOn = document.querySelector(`.${color.next}`)
         this.lightsManager(lightToOn, 'turnOn');
+        if (color?.next === 'green') {
+          this.run();
+        } else if (color?.next === 'red') {
+          this.stop();
+        }
       }
     });
   }
@@ -45,6 +51,20 @@ export class TraficLightComponent implements OnInit {
       light.classList.add('off');
       light.classList.remove('on');
     }
+  }
+
+  run() {
+    let distance = 1400;
+    this.acellerate = setInterval(() => {
+      distance -= 10
+      this.truck.nativeElement.style.transform = `translateX(${distance}px)`;
+    }, 40);
+  }
+
+  stop() {
+    setTimeout(() => {
+      clearInterval(this.acellerate);
+    }, 900);
   }
 
 }
