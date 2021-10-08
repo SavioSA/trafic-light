@@ -1,6 +1,10 @@
 
 section{
   overflow: hidden;
+  background-image: url('/assets/background.jpg');
+  background-size: 1400px 700px;
+  ackground-attachment: fixed !important;
+  background-clip: padding-box;
   .trafic-light{
     cursor: pointer;
     border-radius: .5rem;
@@ -42,4 +46,5 @@ section{
   .truck{
     transform: translate(1400px, 10px);
   }
+
 }

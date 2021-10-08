@@ -9,9 +9,11 @@ export class TraficLightComponent implements OnInit {
   @ViewChild('truck')
   truck: ElementRef;
   acellerate: any;
+  distance: number = 1400;
   constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   changeColor(): void{
     const traficColors = [
@@ -54,10 +56,13 @@ export class TraficLightComponent implements OnInit {
   }
 
   run() {
-    let distance = 1400;
+    this.distance;
     this.acellerate = setInterval(() => {
-      distance -= 10
-      this.truck.nativeElement.style.transform = `translateX(${distance}px)`;
+      this.distance -= 10
+      this.truck.nativeElement.style.transform = `translateX(${this.distance}px)`;
+      if (this.distance <= -460) {
+        this.distance = 1400;
+      }
     }, 40);
   }
 
