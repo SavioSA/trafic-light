@@ -1,4 +1,5 @@
 .trafic-light{
+  cursor: pointer;
   border-radius: .5rem;
   padding: {
     top: 2rem;
@@ -8,14 +9,15 @@
   height: 24rem;
   display: flex;
   flex-direction: column;
-  background-color: #000;
+  background-color: rgb(0, 0, 0);
   justify-content: space-between;
   align-items: center;
   .light{
-    border: 1px solid #fff;
+    border: 3px solid #fff;
     border-radius: 5rem;
     width: 7rem;
     height: 7rem;
+    transition: ease-in 1s;
   }
 
   .red{
@@ -28,5 +30,9 @@
 
   .green{
     background-color: rgb(0, 255, 0);
+  }
+
+  .off{
+    opacity: .4;
   }
 }
