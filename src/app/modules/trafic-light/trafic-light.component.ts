@@ -9,7 +9,7 @@ export class TraficLightComponent implements OnInit {
   @ViewChild('truck')
   truck: ElementRef;
   acellerate: any;
-  distance: number = 1400;
+  distance: number = screen.width;
   constructor() { }
 
   ngOnInit(): void {
@@ -61,7 +61,7 @@ export class TraficLightComponent implements OnInit {
       this.distance -= 10
       this.truck.nativeElement.style.transform = `translateX(${this.distance}px)`;
       if (this.distance <= -460) {
-        this.distance = 1400;
+        this.distance = screen.width;
       }
     }, 40);
   }
