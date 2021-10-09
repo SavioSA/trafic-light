@@ -1,9 +1,6 @@
 
 section{
-  overflow: hidden;
-  background-image: url('/assets/background.jpg');
-  background-size: 1400px 700px;
-  background-clip: padding-box;
+  align-self: flex-start;
   .trafic-light{
     cursor: pointer;
     border-radius: .5rem;
