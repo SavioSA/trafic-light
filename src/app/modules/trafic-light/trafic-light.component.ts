@@ -10,12 +10,7 @@ export class TraficLightComponent implements OnInit {
   truck: ElementRef;
   acellerate: any;
   distance: number = screen.width;
-  constructor() { }
-
-  ngOnInit(): void {}
-
-  changeColor(): void{
-    const traficColors = [
+  traficColors = [
       {
         previous: 'green',
         next: 'yellow'
@@ -29,9 +24,14 @@ export class TraficLightComponent implements OnInit {
         next: 'green'
       }
     ];
+  constructor() { }
+
+  ngOnInit(): void {}
+
+  changeColor(): void{
     const lightOn = document.querySelector('.on');
     this.lightsManager(lightOn, 'turnOff');
-    traficColors.forEach((color) => {
+    this.traficColors.forEach((color) => {
       if (lightOn.classList.contains(color.previous)) {
         const lightToOn = document.querySelector(`.${color.next}`)
         this.lightsManager(lightToOn, 'turnOn');

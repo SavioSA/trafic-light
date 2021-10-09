@@ -22,4 +22,21 @@ describe('TraficLightComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should change trafic light color', () => {
+    const fixture = TestBed.createComponent(TraficLightComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    const lightOn = compiled.querySelector('.on');
+    component.changeColor();
+    expect(component).toBeTruthy(lightOn.classList.contains('.off'));
+  });
+
+  it('should change trafic light color to red', () => {
+    component.distance = -5000;
+    fixture.detectChanges();
+    component.changeColor();
+    expect(component).toBeTruthy(component.distance === screen.width);
+  });
+
 });
