@@ -12,8 +12,7 @@ export class TraficLightComponent implements OnInit {
   distance: number = screen.width;
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   changeColor(): void{
     const traficColors = [
